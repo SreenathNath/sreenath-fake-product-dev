@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <!-- my-new-section -->
+  <div class="section-30">
+     <div class="container">
+        <div class="row">
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="row">
+                 <div class="col-lg-5">
+                    <img [src]="selected_product.image">
+                 </div>
+                 <div class="col-lg-7">
+                    <div class="top product-title">
+                       <h3>{{selected_product.title}}</h3>
+                    </div>
+                    <h6 class="middle">
+                     Category : {{selected_product.category}}
+                    </h6>
+                    <div class="middle">
+                       <ul class="product-description">
+                          <li>{{selected_product.description}}</li>
+                       </ul>
+                    </div>
+                    <div *ngIf="isItemExistOnCart()" class="cart-item">ITEM ADDED TO CART!</div>
+
+                    <div class="bottom shop-buttons">
+                       <div>
+                       <p class="pricing">{{selected_product.price | currency:'INR'}}</p>
+                       <div>
+                        <label>Quantity : </label>
+                        <input type="number" [(ngModel)]="item_quantity"  name="quantity" value="1">
+                       </div>
+                     </div>
+
+                       <a (click)="backToProductList()">BACK</a>
+                       <a *ngIf="!isItemExistOnCart()" class="right" (click)="addToCart(selected_product)">ADD TO CART</a>
+                       <a *ngIf="isItemExistOnCart()" class="right cart-btn" (click)="goToCart()">GO TO CART</a>
+
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+  </div>
+</div>

@@ -1,0 +1,110 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    height: 500px;
+    margin: 20px !important;
+    text-align: center;
+    font-family: arial;
+  }
+
+  .prdt{
+    color: gray;
+    padding-left: 40px;
+    margin-bottom: 10px;
+  }
+
+  .center{
+    text-align: center;
+    padding-left: 47%;
+    width: 200px;
+  }
+  
+  .price {
+    color: grey;
+    font-size: 22px;
+  }
+
+  .margin-10{
+    margin: 10px;
+  }
+
+  .inline-cart{
+    display: inline-block;
+    padding: 10px;
+  }
+
+  .notification {
+    padding: 15px 26px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .notification .badge {
+    position: absolute;
+    top: 5px;
+    right: 30px;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background-color: red;
+  }
+
+  .cart{
+    position: absolute;
+    font-size: 18px;
+    font-weight: 600;
+    color: #595757;
+    top: 06px;
+    display: inline-block;
+    right: 70px;
+  }
+
+  .nav-name{
+    position: absolute;
+    font-size: 18px;
+    font-weight: 500;
+    color: #595757;
+    top: 15px;
+    display: inline-block;
+    right: 220px;
+  }
+  
+  .card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+
+  .loader {
+    border: 10px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 10px solid #3498db;
+    width: 50px;
+    height: 50px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 1s linear infinite;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  a{
+    cursor: pointer;
+   }
+  
+  .card button:hover {
+    opacity: 0.7;
+  }

@@ -1,0 +1,59 @@
+<div *ngIf="!view_product_list"> 
+<form class="reg-form" #regForm="ngForm">
+  <h3>REGISTRATION</h3>
+  <div class="shadow col-md-12">
+    <div class="form-group col-lg-12">
+      <label for="name">Name <span class="mandatory">*</span></label>
+      <input type="text" class="form-control" [(ngModel)]="registration_info.name" required id="name" name="name" aria-describedby="emailHelp" placeholder="Enter Name">
+    </div>
+    <div class="form-group col-lg-12">
+      <label for="emailID">Email address<span class="mandatory">*</span></label>
+      <input type="email" class="form-control" [(ngModel)]="registration_info.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required id="emailID" name="emailID" #email="ngModel" aria-describedby="emailHelp"
+        placeholder="Enter Email">
+        <div *ngIf="email.invalid" class="valAlert" [ngClass]="{'hidden': email.valid || email.pristine}">
+          Please enter valid email id
+        </div>
+    </div>
+    <div class="form-group col-lg-12">
+      <label for="phnNumber">Phone Number<span class="mandatory">*</span></label>
+      <input type="number" class="form-control" [(ngModel)]="registration_info.phone_no" required id="phnNumber" name="phnNumber" aria-describedby="emailHelp"
+        placeholder="Enter Phone Number">
+    </div>
+    <div class="form-group col-lg-12">
+      <label for="billingAddress">Billing Address<span class="mandatory">*</span></label>
+      <input type="text" class="form-control" [(ngModel)]="registration_info.billing_address" required id="billingAddress"name="billingAddress"  aria-describedby="emailHelp"
+        placeholder="Enter Billing Address">
+    </div>
+    <div class="form-group col-lg-6">
+      <input type="number" class="form-control" [(ngModel)]="registration_info.billing_pincode" required id="billingPin" name="billingPin" aria-describedby="emailHelp" placeholder="Enter Pincode">
+    </div>
+    <div class="form-group col-lg-6">
+      <input type="number" class="form-control" [(ngModel)]="registration_info.billing_phone_no" required id="billingNo"name="billingNo"   aria-describedby="emailHelp" placeholder="Enter Phone Number">
+    </div>
+    <div *ngFor="let adrs of registration_info.shipping_address; let i = index">
+      <div class="form-group col-lg-12">
+        <label for="shippingAddress">Shipping Address<span *ngIf="i == 0" class="mandatory">*</span></label>
+        <div class="inline-div">
+        <input type="text" class="form-control" [(ngModel)]="adrs.address" [required]="i==0" id="shippingAddress{{i}}"name="shippingAddress{{i}}"  aria-describedby="emailHelp"
+          placeholder="Enter Shipping Address">
+          <div *ngIf="registration_info.shipping_address.length > 1"(click)="removeShippingAddress(i)"class="plus">-</div>
+          </div>
+      </div>
+      <div class="form-group col-lg-6">
+        <input type="number" class="form-control" [(ngModel)]="adrs.pincode" [required]="i==0" id="shippingPin{{i}}" name="shippingPin{{i}}" aria-describedby="emailHelp"
+          placeholder="Enter Pincode">
+      </div>
+      <div class="form-group col-lg-6">
+        <input type="number" class="form-control" [(ngModel)]="adrs.phone_no" [required]="i==0" id="shippingNo{{i}}" name="shippingNo{{i}}" aria-describedby="emailHelp"
+          placeholder="Enter Phone Number">
+      </div>
+    </div>
+    <div class="padding-15">
+      <a (click)="addShippingAddress()"> +Add another shipping address</a>
+    </div>
+    <button type="submit" (click)="onSubmit()" [disabled]="regForm.invalid" title="Please enter all mandatory fields" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+</div>
+
+<app-products *ngIf="view_product_list" [registration_info]="registration_info"></app-products>

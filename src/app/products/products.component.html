@@ -1,0 +1,32 @@
+<div *ngIf="!is_loading" class="nav-name">{{registration_info.name}}</div>
+<div class="cart" *ngIf="!is_loading" (click)="navigateCart()">
+  <i class="fa fa-shopping-cart" style="font-size:30px"></i>
+  <p class="inline-cart">Cart</p>
+  <a *ngIf="cart_items && cart_items.length > 0"href="#" class="notification">
+    <span class="badge">{{cart_items.length}}</span>
+  </a>
+</div>
+
+
+<div *ngIf="is_loading" class="center">
+  <div class="loader center"></div>
+</div>
+
+
+<div *ngIf="!is_loading && !is_selected_item && !is_nav_cart">
+  <h4 class="prdt">PRODUCTS</h4>
+
+  <div *ngFor="let product of product_lists" class="col-lg-3">
+    <div class="card" (click)="selectProduct(product)">
+      <img [src]="product.image" alt="Denim Jeans" class="margin-10" style="width:60%">
+      <h4>{{product.title}}</h4>
+      <p class="price">{{product.price | currency:'INR'}}</p>
+      <!-- <p class="margin-5">{{product.description}}</p> -->
+      <!-- <p><button>Add to Cart</button></p> -->
+    </div>
+  </div>
+</div>
+
+<app-product *ngIf="is_selected_item" [selected_product]="selected_product" [cart_items]="cart_items" (onBack)="onBack($event)" (onGoCart)="onGoCart($event)" (onUpdateCart)="onUpdateCart($event)"></app-product>
+
+<app-cart *ngIf="is_nav_cart" [cart_items]="cart_items" (onBack)="onBack($event)"></app-cart>

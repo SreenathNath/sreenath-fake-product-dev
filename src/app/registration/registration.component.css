@@ -1,0 +1,57 @@
+.reg-form{
+    padding: 10px 25%;
+}
+.shadow{
+    padding: 30px;
+    box-shadow: 0 0 1px rgb(57 70 78 / 15%), 0 20px 55px -8px rgb(57 70 78 / 25%);
+}
+
+.no-padding-left{
+    padding-left: 0px !important
+}
+
+.no-padding-right{
+    padding-right: 0px !important
+}
+
+.valAlert{
+  color: red;
+  font-size: 14px;
+
+}
+
+.inline-div{
+    display: flex;
+}
+
+.padding-15{
+    padding-left: 15px
+}
+
+a{
+ cursor: pointer;
+}
+
+.btn{
+    float: right;
+    margin-right: 20px;
+}
+
+.mandatory{
+    color: #ca2d18;
+    padding: 5px;
+}
+
+.plus {
+    font-size: 18px;
+    background: gainsboro;
+    width: 25px;
+    border: 1px solid #d4d3d3;
+    height: auto;
+    padding: 2px;
+    height: auto;
+    margin-left: 2px;
+    text-align: center;
+    font-weight: 600;
+  }
+
